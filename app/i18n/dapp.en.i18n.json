@@ -1,0 +1,128 @@
+{
+    "dapp": {
+        "app": {
+            "title": "WeiLend",
+            "defaultName": "WeiLend",
+            "buttons": {
+                "home": "Home",
+                "discover": "Discover",
+                "about": "About",
+                "start": "Start",
+                "contact": "Contact",
+				
+				"search": "Search",
+                "startLoan": "Start a Loan",
+                "startYourLoan": "Start Your Loan!",
+                "github": "Github",
+                "twitter": "Twitter",
+                "linkedin": "LinkedIn",
+                "gotoLoan": "Goto Your Loan",
+				"loadMore": "Load More",
+                "deploy": "Deploy",
+				
+				"donate": "Contribute Now!",
+				"refund": "Refund Contributors",
+				"payout": "Payout to Beneficiary",
+                "payInstallment": "Pay an installment of your Loan"
+            },
+            "headers": {
+                "identicon": "Identicon",
+                "address": "Address",
+                "balance": "Balance",
+                "account": "Account",
+                "solidity": "Solidity Code",
+                "coinbase": "Coinbase",
+                "listening": "Listening",
+                "peerCount": "Peer Count",
+                "blockNumber": "Block Numbr",
+                "defaultBlock": "Default Block",
+                "mining": "Mining",
+                "gasPrice": "Gas Price",
+				
+				"search": "Search",
+				"recent": "Recent",
+                "big": "Bring your creative project to life",
+                "small": "Next generation p2p lending is here.",
+                "connect": "Connect With The Team",
+                "startLoan": "Start Your Loan",
+                "loanStarted": "Your Loan Has Started!",
+                "loanUrl": "Your Loan URL:",
+                "details": "Details",
+                "dontForget": "Dont Forget to Add Your Campaign Image",
+                "campaignEmbed": "Embed your Campaign Link",
+				"getFunded": "Get Your Project Funded"
+            },
+            "categories": [
+                "Small Business"
+                , "Technology"
+                , "Music"
+                , "Arts"
+                , "Cryptocurrency"
+                , "Dance"
+                , "Fashion"
+                , "Film"
+                , "Community"
+                , "Food"
+                , "Games"
+                , "Education"
+                , "Cause"
+                , "Politics"
+            ],
+            "phrases": {
+                "hasStarted": "has started"
+                , "loanId": "Loan ID"
+				, "funded": "funded"
+				, "pledged": "pledged"
+				, "backers": "backers"
+				, "daysToGo": "days to go"
+                , "contractAddress": "Contract Address"
+            },
+            "copyright": "Copyright © WeiLend 2015. All Rights Reserved"
+        },
+        "components": {
+        },
+        "views": {
+            "home": {
+                "title": "A Decentralized P2P Lending Platform",
+                "defaultName": "Home",
+                "text": {
+                    "about_1": "A Better Way To Lend p2p",
+                    "about_2": "WeiLend is a free to use, totally open-source crowdfunding platform built on Ethereum.",
+                    "about_3": "Built on <a href='http://www.ethereum.org'>Ethereum</a>",
+                    "about_4": "WeiLend is proudly build with Ethereum, a decentralized open-source consensus ecosystem that enables a more free and secure internet.",
+                    "about_5": "Our Philosophy",
+                    "about_6": "Our philosophy is simple: clean design, totally decentralized, 100% open-sourced, minimalist, no fee, light, and reactive.",
+                    "start_1": "Fill out your project details below and get your cheap loan to fund your project!",
+                    "start_2": "Upload a 500px by 300px PNG image titled 'weilend.png' (without the qoutes) to your website's main directory.",
+                    "start_3": "**Note, this is the image that will be used on WeiLend.",
+                    "start_4": "",
+                    "details_1": "All funds are in Ether denominations",
+                    "details_2": "If your funding goal is not reached by the alloted time period, all ether is returned to the respective doners",
+                    "details_3": "If your funding goal is reached, the funds will be available to the beneficiary address provided",
+                    "details_4": "You can easily repay your installments and they will be distributed automatically among your lenders",
+                    "details_5": "Please provide a website url and operation name below 32 characters",
+                    "details_6": "A loan ID will be provided after the funding is started, use this to promote your loan application"
+                }
+            },
+            "discover": {
+                "title": "Discover",
+                "defaultName": "Discover"
+            },
+            "tracker": {
+                "title": "Tracker",
+                "defaultName": "Tracker",
+				"text": {
+					"thankyou": "Thank you for contributing!",
+					"failed": "Ah, snap... This loan has expired and could not raise enough funds.",
+					"success": "This loan has reached it's goal!",
+                    "refundProcessing": "Your refund is being processed...",
+                    "refundProcessed": "Your refund has been processed.",
+                    "payoutProcessing": "Processing loan payout...",
+                    "payoutProcessed": "This loan has been payedout, whoohoo!",
+                    "donationProcessing": "Your contribution is being processed.", 
+                    "donationProcessed": "Your contribution has been processed, thankyou!"
+				}
+            }
+        }
+    }
+}
