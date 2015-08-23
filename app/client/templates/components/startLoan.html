@@ -1,0 +1,120 @@
+<template name="components_startLoan">
+	<div class="content-section-b">
+        <div class="container">
+            {{#with TemplateVar.get 'startLoan'}}
+            <div class="row {{#if isNotStarted}}hide{{/if}}">
+                <div style="margin-top: 60px;">
+                    {{#if isMining}}
+                        <h2>{{{i18n 'dapp.app.headers.loanMining'}}}</h2>
+                        <div class="alert alert-info">
+                            <p>{{{i18n 'dapp.components.startLoan.isMining'}}} <i class="fa fa-spinner fa-pulse"></i></p>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if isError}}
+                        <h2>Processing Error</h2>
+                        <div class="alert alert-warning">
+                            <p>{{{i18n 'dapp.components.startLoan.isError'}}} {{error}}</p>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if isMined}}
+                        {{#with loans lid}}
+                        <div class="col-lg-5 col-sm-6">
+                            <h2>{{{i18n 'dapp.app.headers.loanStarted'}}}</h2> 
+                            <div style="margin-top: 40px;">
+                                <h2 style="margin-top: 0px;"><a href="/loan/{{id}}" class="light">{{name}}</a></h2>
+                                <h4><span class="light">{{{i18n 'dapp.app.phrases.loanId'}}} #</span><strong>{{id}}</strong></h4>                            
+                                <h3 style="margin-top: 60px;">{{{i18n 'dapp.app.headers.loanUrl'}}}</h3>
+                                <input type="text" style="border-radius: 5px;" class="form-control" onClick="this.setSelectionRange(0, this.value.length)" value="http://weilend.io/loan/{{id}}" /> 
+                                <!-- End of URL -->
+
+                                <br><br><br>                           
+                                <a href="/loan/{{id}}" class="btn btn-primary btn-lg">{{{i18n 'dapp.app.buttons.gotoLoan'}}}</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-lg-offset-2 col-sm-6 details" style="min-height: 650px;">
+                            <div style="margin-top: 50px;">     
+                                <h3>{{{i18n 'dapp.app.headers.dontForget'}}}</h3>                        
+                                <div class="panel panel-default cf-panel-2">
+                                    <div class="panel-heading">{{{i18n 'dapp.views.home.text.start_2'}}}</div>
+                                    <div class="panel-body" style="background-color: #FFFFFF;">
+                                        <h4 style="margin: 0px; background-color: #FFFFFF;"><span id="new_loan_website" class="light" style="background-color: #FFFFFF;">{{addhttp website}}</span><strong style="background-color: #FFFFFF;">/weilend.png</strong></h4>
+                                    </div>
+                                    <div class="panel-footer">{{{i18n 'dapp.views.home.text.start_3'}}}</div>
+                                </div>
+
+                                <h3 style="margin-top: 40px;">{{{i18n 'dapp.app.headers.loanEmbed'}}}</h3>
+
+                                <div class="panel panel-default cf-panel-2">
+                                    <div class="panel-heading text-center">
+                                        <a href="#new" id="loan_embed_1" style="color: #333333;"><img style="border: 3px solid #999; border-radius: 5px; margin-right: 10px;" src="images/weilend_20.png"></a>
+                                        <a href="#new" id="loan_embed_2" style="color: #333333;"><img style="border: 3px solid #999; border-radius: 5px; margin-right: 10px;" src="images/weilend_100.png"></a>
+                                        <a href="#new" id="loan_embed_3" style="color: #333333;"><img style="border: 3px solid #999; border-radius: 5px; margin-right: 10px;" src="images/weilend_150.png"></a>
+                                    </div>
+                                    <div class="panel-body">
+                                        <textarea id="new_loan_embed" style="border-radius: 5px;" class="form-control" onclick="this.setSelectionRange(0, this.value.length)">&lt;a href="http://weilend.io?id={{id}}"&gt;&lt;img style="border: 3px solid #999; border-radius: 5px; margin-right: 10px;" src="http://weilend.io/img/weilend_20.png"&gt;&lt;/a&gt;</textarea>
+                                    </div>
+                                </div>    
+                            </div>       
+                        </div>
+                        {{/with}}
+                    {{/if}}
+                </div> <!-- ./col-lg-5 -->
+            </div> <!-- ./row -->
+            
+            <div class="row {{#unless isNotStarted}}hide{{/unless}}">
+                <div class="col-lg-5 col-sm-6">
+                    <form id="startLoanForm" class="input-group input-group-lg css-form" style="margin-top: 60px;" data-parsley-validate parsley-validate action="/#start">
+                        <h2>{{{i18n 'dapp.app.headers.startLoan'}}}</h2>
+                        <p class="lead">{{{i18n 'dapp.views.home.text.start_1'}}}</p>                            
+                        <input  type="text" id="operationName" class="form-control" placeholder="{{i18n 'dapp.components.startLoan.placeholders.operationName'}}" data-parsley-minlength="[3]" minlength="3" maxlength="32" data-parsley-trigger="change" data-trigger="keyup" required data-parsley-group="block1" />                                                                             
+                        <input type="url" id="website" placeholder="{{i18n 'dapp.components.startLoan.placeholders.website'}}" class="form-control" minlength="3" maxlength="32" aria-describedby="sizing-addon1" data-parsley-trigger="change" style="margin-top: 15px;" required data-parsley-group="block1"  />        
+
+                        <input type="url" id="video" placeholder="{{i18n 'dapp.components.startLoan.placeholders.video'}}" class="form-control" minlength="3" aria-describedby="sizing-addon1" data-parsley-trigger="change" style="margin-top: 15px;" required data-parsley-group="block1"  />        
+
+                        <input type="text" id="timelimit_m" name="timelimit_m" class="form-control datepicker" required aria-describedby="sizing-addon1" data-parsley-trigger="change" style="max-width: 49%;  margin-top: 10px; margin-right: 2%;" placeholder="{{i18n 'dapp.components.startLoan.placeholders.timelimit_m'}}" data-parsley-group="block1" />                            
+                        <input type="number" id="goal" name="goal" min="1" class="form-control" required aria-describedby="sizing-addon1" data-parsley-trigger="change" style="max-width: 49%; margin-top: 10px;" placeholder="{{i18n 'dapp.components.startLoan.placeholders.goal'}}" data-parsley-group="block2" />            
+
+                        <input type="number" id="interest_rate" name="interest_rate" min="0" class="form-control" required aria-describedby="sizing-addon1" data-parsley-trigger="change" style="max-width: 49%; margin-top: 10px;" placeholder="{{i18n 'dapp.components.startLoan.placeholders.interest_rate'}}" data-parsley-group="block2" />
+
+                        <input type="text" id="grace_period_m" name="grace_period_m" class="form-control datepicker" required aria-describedby="sizing-addon1" data-parsley-trigger="change" style="max-width: 49%;  margin-top: 10px; margin-right: 2%;" placeholder="{{i18n 'dapp.components.startLoan.placeholders.grace_period_m'}}" data-parsley-group="block1" />
+
+                        <input type="text" id="tenor_a" name="tenor_a" class="form-control datepicker" required aria-describedby="sizing-addon1" data-parsley-trigger="change" style="max-width: 49%;  margin-top: 10px; margin-right: 2%;" placeholder="{{i18n 'dapp.components.startLoan.placeholders.tenor_a'}}" data-parsley-group="block1" />
+
+                        {{#with accounts 0}}
+                        <input type="text" id="beneficiary" class="form-control"  minlength="3" aria-describedby="sizing-addon1" data-parsley-trigger="change" required placeholder="{{i18n 'dapp.components.startLoan.placeholders.beneficiary'}}" style="-webkit-user-select: auto !important; margin-top: 10px;" data-parsley-group="block2" value="{{address}}" />    
+                        {{/with}}
+
+                        <input type="text" id="config" class="form-control"  minlength="3" aria-describedby="sizing-addon1" placeholder="{{i18n 'dapp.components.startLoan.placeholders.config'}}" style="-webkit-user-select: auto !important; margin-top: 10px;" />    
+
+                        <select id="category" class="form-control" data-parsley-check="[0, 13]" data-parsley-trigger="change" style="margin-top: 15px;" required aria-describedby="sizing-addon1" data-parsley-group="block3">
+                            <option selected="selected"  data-parsley-trigger="change" value="" data-parsley-group="block3">{{i18n 'dapp.components.startLoan.placeholders.category'}}</option>
+                            {{#each categories ''}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+
+                        <input type="submit" id="start" class="btn btn-primary btn-lg" style="margin-top: 20px;" value="{{i18n 'dapp.app.buttons.startYourLoan'}}" />
+                     </form>
+                </div> <!-- ./col-lg-5 -->
+                
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6 details" style="min-height: 650px;">
+                    <div style="padding-top: 60px;">
+                         <h2>{{{i18n 'dapp.app.headers.details'}}}</h2>                         
+                         <ul class="lead">
+                             <li>{{{i18n 'dapp.components.startLoan.details.0'}}}</li>
+                             <li>{{{i18n 'dapp.components.startLoan.details.1'}}}</li>
+                             <li>{{{i18n 'dapp.components.startLoan.details.2'}}}</li>
+                             <li>{{{i18n 'dapp.components.startLoan.details.3'}}}</li>
+                             <li>{{{i18n 'dapp.components.startLoan.details.4'}}}</li>
+                        </ul>
+                     </div>               
+                </div> <!-- ./col-lg-5 -->
+            </div> <!-- ./row -->
+            {{/with}}
+        </div>
+        <!-- /.container -->    
+    </div>
+    <!-- /.content-section-b -->    
+</template>
