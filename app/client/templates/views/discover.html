@@ -5,13 +5,13 @@
             <div class="row-fluid" style="margin-top: 40px;">
                 <div class="col-lg-12 categories">
                 	{{#each categories}}
-                     	<a href="{{pathFor 'discover'}}/{{name}}" class="btn btn-default">{{name}}</a>
+                     	<a href="{{pathFor 'discover'}}/{{operationName}}" class="btn btn-default">{{operationName}}</a>
                     {{/each}}             
                 </div>
             </div>    
             <div>
                 <div class="row-fluid">
-                {{#each campaigns}}
+                {{#each loans}}
                     {{> components_card}}
                 {{/each}}
                 </div>

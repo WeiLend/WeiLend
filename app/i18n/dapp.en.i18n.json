@@ -23,7 +23,7 @@
 				"donate": "Contribute Now!",
 				"refund": "Refund Contributors",
 				"payout": "Payout to Beneficiary",
-                "payInstallment": "Pay an installment of your Loan"
+                "payInstallment": "Pay an Installment of a Loan"
             },
             "headers": {
                 "identicon": "Identicon",
@@ -38,22 +38,23 @@
                 "defaultBlock": "Default Block",
                 "mining": "Mining",
                 "gasPrice": "Gas Price",
+                "loanMining": "Processing Loan...",
 				
 				"search": "Search",
 				"recent": "Recent",
                 "big": "Bring your creative project to life",
-                "small": "Next generation p2p lending is here.",
+                "small": "Next generation crowd lending is here.",
                 "connect": "Connect With The Team",
                 "startLoan": "Start Your Loan",
                 "loanStarted": "Your Loan Has Started!",
                 "loanUrl": "Your Loan URL:",
                 "details": "Details",
-                "dontForget": "Dont Forget to Add Your Campaign Image",
-                "campaignEmbed": "Embed your Campaign Link",
+                "dontForget": "Dont Forget to Add Your Loan Image",
+                "loanEmbed": "Embed your Loan Link",
 				"getFunded": "Get Your Project Funded"
             },
             "categories": [
-                "Small Business"
+                "Business"
                 , "Technology"
                 , "Music"
                 , "Arts"
@@ -80,28 +81,56 @@
             "copyright": "Copyright © WeiLend 2015. All Rights Reserved"
         },
         "components": {
+            "deploy": {
+                "title": "Deploy WeiLend"
+                , "isUndeployed": "Deploy the core WeiLend crowdlending contract by clicking 'Deploy'."
+                , "isError": "There was an error deploying the core WeiLend contract. This was the error: "
+                , "isMining": "The WeiLend contract is being mined, this may take a minute... "
+                , "isMined": "Your WeiLend contract has been mined!"
+                , "isMined_1": "WeiLend has been deployed to the address below. It will be stored in your browser until you clear your browser cache."
+                , "isMined_2": "If you would like to set this address as the primary WeiLend address, copy the address provided and change the LocalStore.set('weilendAddress'... value in 'app/client/index.js'."
+            }
+            , "startLoan": {
+                "isMining": "Your loan is being processed. Please wait one moment... "
+                , "isError": "There was an error processing (mining) your loan. The error is as follows:"
+                , "isMined": ""
+                , "details": [
+                    "All funds are in the Ether denomination"
+                    , "If your loan goal is not reached by the alloted time period, all ether is returned to the respective doners"
+                    , "If your loan goal is reached, the funds will be available to the beneficiary address provided"
+                    , "Please provide a website url and loan name below 32 characters"
+                    , "A loan ID will be provided after the loan is started, use this to promote your loan"
+                ]
+                , "placeholders": {
+                    "operationName": "Loan Name"
+                    , "website": "Website"
+                    , "video": "Video (i.e. Youtube URL)"
+                    , "timelimit_m": "End Date"
+                    , "interest_rate": "Interest Rate"
+                    , "grace_period_m": "Grace Period"
+                    , "tenor_a": "Tenor"
+                    , "goal": "Goal (i.e. 200 ETH)"
+                    , "beneficiary": "Beneficiary Address (use arrow keys)"
+                    , "config": "Config Contract Address"
+                    , "category": "Category"
+                }
+            }
         },
         "views": {
             "home": {
                 "title": "A Decentralized P2P Lending Platform",
                 "defaultName": "Home",
                 "text": {
-                    "about_1": "A Better Way To Lend p2p",
-                    "about_2": "WeiLend is a free to use, totally open-source crowdfunding platform built on Ethereum.",
+                    "about_1": "A Better Way To Crowd Lend",
+                    "about_2": "WeiLend is a free to use, totally open-source p2p lending platform built on Ethereum.",
                     "about_3": "Built on <a href='http://www.ethereum.org'>Ethereum</a>",
                     "about_4": "WeiLend is proudly build with Ethereum, a decentralized open-source consensus ecosystem that enables a more free and secure internet.",
                     "about_5": "Our Philosophy",
                     "about_6": "Our philosophy is simple: clean design, totally decentralized, 100% open-sourced, minimalist, no fee, light, and reactive.",
-                    "start_1": "Fill out your project details below and get your cheap loan to fund your project!",
-                    "start_2": "Upload a 500px by 300px PNG image titled 'weilend.png' (without the qoutes) to your website's main directory.",
+                    "start_1": "Fill out your project details below and get crowd lending!",
+                    "start_2": "Upload a 500px by 300px PNG image titled 'weilend.png' (without the quotes) to your website's main directory.",
                     "start_3": "**Note, this is the image that will be used on WeiLend.",
-                    "start_4": "",
-                    "details_1": "All funds are in Ether denominations",
-                    "details_2": "If your funding goal is not reached by the alloted time period, all ether is returned to the respective doners",
-                    "details_3": "If your funding goal is reached, the funds will be available to the beneficiary address provided",
-                    "details_4": "You can easily repay your installments and they will be distributed automatically among your lenders",
-                    "details_5": "Please provide a website url and operation name below 32 characters",
-                    "details_6": "A loan ID will be provided after the funding is started, use this to promote your loan application"
+                    "start_4": ""
                 }
             },
             "discover": {
@@ -117,10 +146,12 @@
 					"success": "This loan has reached it's goal!",
                     "refundProcessing": "Your refund is being processed...",
                     "refundProcessed": "Your refund has been processed.",
+                    "payInstallmentProcessing": "Your installment is being paid...",
+                    "payInstallmentProcessed": "Your installment has been paid.",
                     "payoutProcessing": "Processing loan payout...",
                     "payoutProcessed": "This loan has been payedout, whoohoo!",
-                    "donationProcessing": "Your contribution is being processed.", 
-                    "donationProcessed": "Your contribution has been processed, thankyou!"
+                    "donationProcessing": "Your contribution is being processed."
+                    , "donationProcessed": "Your donation has been processed, thankyou!"
 				}
             }
         }

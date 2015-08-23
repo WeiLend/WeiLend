@@ -12,25 +12,16 @@ The view1 template
 **/
 
 Template['views_discover'].helpers({
-    /**
-    Get the name
-
-    @method (name)
-    **/
-
-    'name': function(){
-        return this.name || TAPi18n.__('dapp.views.discover.defaultName');
-    },
-	
 	/**
-    Get the campaigns
+    Get the loan
 
-    @method (campaigns)
+    @method (loans)
     **/
     
-	'campaigns': function(){
-		var	params = category == false ? {} : {categoryId: categoryId};
-		return Campaigns.find(params);
+	'loans': function(){
+		var	params = this.category == false ? {} : {category: this.category};
+        
+		return Loans.find(params, {sort: {id: -1}});
 	},
 	
 	/**
@@ -53,11 +44,19 @@ Template['views_discover'].events({
     
 	'click #loadMore': function(){
         var start = Session.get('start');
-        Campaigns.load(false, 8, start);
+        Loans.load(start, 8);
         Session.set('start', start + 8);
 	},
 });
 
 Template['views_discover'].created = function(){	
 	Meta.setSuffix(TAPi18n.__("dapp.views.discover.title"));
+};
+
+Template['views_discover'].rendered = function(){	
+    
+    Loans.load(0, 8, function(err, result){
+        
+    });
+    
 };

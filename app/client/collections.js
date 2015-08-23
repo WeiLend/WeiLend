@@ -1,12 +1,13 @@
-
-// Basic (local) collections
-// we use {connection: null} to prevent them from syncing with our not existing Meteor server
-
-// The WeiFund Categories
+// The WeiLend Categories
 Categories = new Mongo.Collection('categories', {connection: null});
-WeiFund.CategoriesMinimongo(Categories);
+new PersistentMinimongo(Categories);
+new WeiLend.CategoriesMinimongo(Categories);
 
-// The WeiFund Campaigns
-Campaigns = new Mongo.Collection('campaigns', {connection: null});
-WeiFund.CampaignsMinimongo(Campaigns);
-Campaigns.clear();
+// The WeiLend Loans
+Loans = new Mongo.Collection('loans', {connection: null});
+new PersistentMinimongo(Loans);
+new WeiLend.LoansMinimongo(Loans);
+
+// Available Web3 Accounts
+Accounts = new Mongo.Collection('accounts', {connection: null});
+web3.AccountsMinimongo(Accounts);
